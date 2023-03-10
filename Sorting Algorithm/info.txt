@@ -1,0 +1,2 @@
+Sorting Algorithm
+      Sorting   is process of rearranging the elements  in array /list based on the comparison of elements
