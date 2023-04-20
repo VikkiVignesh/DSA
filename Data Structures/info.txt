@@ -1,1 +1,0 @@
-Data Structure is the process of studying various way to store the data in computer memory and how it can be accessed most efficiently
