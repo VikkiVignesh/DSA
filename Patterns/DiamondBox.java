@@ -5,6 +5,7 @@ public class DiamondBox {
         Scanner sc=new Scanner(System.in);
         System.out.println("Enter the Number of rows (in terms 2*r) :");
         int n=sc.nextInt();
+        int c=1;
         for(int i=0;i<=2*n;i++)
         {
             System.out.print("- ");
@@ -18,11 +19,11 @@ public class DiamondBox {
             }
             for(int k=1;k<=i;k++)
             {
-                System.out.print("* ");
+                System.out.print(i+" ");
             }
             for(int l=2;l<=i;l++)
             {
-                System.out.print("* ");
+                System.out.print(i+" ");
             }
 
             for(int m=0;m<n-i+1;m++)
@@ -40,11 +41,11 @@ public class DiamondBox {
             }
             for(int k=1;k<=i;k++)
             {
-                System.out.print("* ");
+                System.out.print(i +" ");
             }
             for(int l=2;l<=i;l++)
             {
-                System.out.print("* ");
+                System.out.print(i+" ");
             }
 
             for(int m=0;m<n-i+1;m++)
