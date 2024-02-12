@@ -1,4 +1,7 @@
- Scanner sc=new Scanner(System.in);
+import java.util.*;
+public class Diamond {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
         System.out.println("Enter the Number of rows (in terms 2*r) :");
         int n=sc.nextInt();
         for(int i=1;i<n;i++)
@@ -25,3 +28,5 @@
             }
             System.out.println();
         }
+    }
+}
