@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class KthSmallEle {
-    //In this we need to find the Kthe smallest element in th erow columns wise sorted matrix
+    //In this we need to find the Kthe smallest element in th each row columns wise sorted matrix
 
     public static void main(String[] args) {
         Scanner sc= new Scanner(System.in);
@@ -10,4 +10,8 @@ public class KthSmallEle {
         System.out.println("Enter the number of columns : ");
         int col=sc.nextInt();
     }
+
+
+
+    
 }
