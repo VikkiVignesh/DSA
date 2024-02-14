@@ -3,6 +3,7 @@ public class MinElem {
     public static void main(String[] args) {
         int a[]={5,6,1,2,3,4};
         //find the miniumum element in the rotated sorted array
+        System.out.println("Finding Smallest Element");
        System.out.println("Smallest Element in the Array is "+search(a));
     }
 
