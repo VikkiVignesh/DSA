@@ -1,7 +1,7 @@
 public class solidRhombus {
 
     public static void main(String[] args) {
-        rhombus(10);
+        rhombus(5);
     }
 
     static void rhombus(int n)
@@ -12,7 +12,7 @@ public class solidRhombus {
             {
                 System.out.print(" ");
             }
-            for(int k=0;k<=2*n;k++)
+            for(int k=0;k<=n;k++)
             {
                 System.out.print("*");
             }
