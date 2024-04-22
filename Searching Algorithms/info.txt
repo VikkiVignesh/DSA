@@ -1,1 +1,0 @@
-Searching Algorithm is used for searching the required element  is present in the list or not
