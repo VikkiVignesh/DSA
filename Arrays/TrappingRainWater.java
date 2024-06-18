@@ -18,7 +18,7 @@ public class TrappingRainWater {
         System.out.println(Arrays.toString(walls));
 
         System.out.println("Amount of Rain Water Trapped in the Walls is : "+findVolume(walls, getRightBound(walls),getLeftBound(walls)));
-        
+        System.out.println(getWater(walls));
     }
 
     public static int findVolume(int w[],int r[],int l[])
@@ -80,6 +80,32 @@ public class TrappingRainWater {
         }
         System.out.println(Arrays.toString(temp));
         return temp;
+    }
+
+
+
+
+    public static int getWater(int a[])
+    {
+        int l=0,r=a.length-1; // 0,4  0,3 1,3 2,3
+        int water=0; // 0,0  ,2, 4
+        int left=a[l]; //6 ,6 ,4
+        int right=a[r];  //5 ,8 
+        while (l<r) { //0<4  0<3
+            if(left<right) // 6<5  6<8 4<8
+            {
+                l++; // 1,2
+                left=Math.max(left, a[l]);
+                water+=left-a[l]; // 0+6-4  =2   2+=max(4,2)4-2 4
+            }
+            else
+            {
+                r--; // 3 
+                right=Math.max(right,a[r]);
+                water+=right-a[r]; //0+=8-8 0
+            }
+        }
+        return water;
     }
 
 }
