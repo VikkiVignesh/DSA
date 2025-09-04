@@ -1,6 +1,8 @@
 package Trees;
 import java.util.HashMap;
 
+import Trees.DupSubTree.Res;
+
 public class DupSubTree {
 
     static HashMap<String,Integer> m=new HashMap<>();
@@ -118,6 +120,8 @@ public static int maxPathSum(Node root,Res res)
     int maxsingle=Math.max(Math.max(left, right)+root.data,root.data);
     int maxTop=Math.max(maxsingle, left+right+root.data);
 
+    res.val = Math.max(res.val, maxTop);
+    
     return maxsingle;
 }
 
