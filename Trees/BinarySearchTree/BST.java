@@ -1,6 +1,7 @@
 package Trees.BinarySearchTree;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class BST {
@@ -37,7 +38,7 @@ public class BST {
         return root;
     }
 
-     public void Inorder(Node root)
+    public static void Inorder(Node root)
     {
         if(root==null)
         {
@@ -149,11 +150,11 @@ public class BST {
     }
 
 
-    public static Void path(Node root,ArrayList<Integer> list)
+    public static void path(Node root,ArrayList<Integer> list)
     {
         if(root ==null)
         {
-            return;
+            return ;
         }
 
         list.add(root.data);
@@ -166,11 +167,102 @@ public class BST {
         list.remove(list.size()-1);
     }
 
-    public static boole isValisBST(Node root)
+    public static boolean isValisBST(Node root,Node min,Node max)
     {
-        
+        if(root == null)
+        {
+           return true;
+        }
+
+        if( min!=null && root.data <= min.data || max!=null && root.data >= max.data)
+        {
+            return false;
+        }
+         return isValisBST(root.left, min, root) &&  isValisBST(root.right, root, max);
+    }
+
+
+    public static Node mirrorBST(Node root)
+    {
+        if(root==null)
+        {
+            return null;
+        }
+        Node leftMirror=mirrorBST(root.left);
+        Node rightMirror=mirrorBST(root.right);
+
+        root.left=leftMirror;
+        root.right=rightMirror;
+
+        return root;
+    }
+
+    public static void preorder(Node root)
+    {
+        if(root==null)
+        {
+            return;
+        }
+        System.out.print(root.data+" ");
+        preorder(root.left);
+        preorder(root.right);
+    }
+
+
+    public static Node CreateBst_frm_Array(int a[],int st,int ed)
+    {
+        if(st>ed)
+        {
+            return null;
+        }
+        int mid=(st+ed)/2;
+        Node root=new Node(a[mid]);
+        root.left=CreateBst_frm_Array(a, st, mid-1);
+        root.right=CreateBst_frm_Array(a, mid+1, ed);
+        return root;
     }
     
+
+    public static void InorderTrav(Node root, ArrayList<Integer> ls)
+    {
+        if(root==null)
+        {
+            return;
+        }
+        InorderTrav(root.left, ls);
+        ls.add(root.data);
+        InorderTrav(root.right,ls);
+    }
+
+    public static Node Balance_BST(Node root)
+    {
+        ArrayList<Integer> list=new ArrayList<>();
+        InorderTrav(root, list);
+        Collections.sort(list);
+        System.out.println(list);
+
+
+        root=Create_BST(list, 0, list.size()-1);
+        return root;
+    }
+
+
+    public static Node Create_BST(ArrayList<Integer> l,int s,int e)
+    {
+        if(s>e)
+        {
+            return null;
+        }
+        int mid=(s+e)/2;
+
+        Node root=new Node(l.get(mid));
+        root.left=Create_BST(l, s, mid-1);
+        root.right=Create_BST(l, mid+1, e);
+        return root;
+    }
+
+
+
     public static void main(String[] args) {
         int arr[]={8,5,3,1,4,6,10,11,14};
         Node root=null;
@@ -183,7 +275,9 @@ public class BST {
         bst.Inorder(root);
 
         System.out.println(search(root, 9));
-
+        
+       
+        System.out.println("IS valid Tree - "+isValisBST(root, null,null));
 
         //  bst.Inorder(root);
         //  System.out.println();
@@ -206,5 +300,24 @@ public class BST {
 
          ArrayList<Integer> ls=new ArrayList<>();
          path(root, ls);
+
+         preorder(root);
+          System.out.println();
+         Node res=mirrorBST(root);
+         preorder(res);
+         System.out.println();
+        
+         int ar[]={1,2,3,4,5,6,7,8,9};
+         Node rs=CreateBst_frm_Array(ar, 0, ar.length-1);
+         preorder(rs);
+
+
+         Node r=Balance_BST(root);
+
+         System.out.println();
+         preorder(r);
+         
+
+        
     }
 }
