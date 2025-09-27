@@ -241,7 +241,6 @@ public class BST {
         Collections.sort(list);
         System.out.println(list);
 
-
         root=Create_BST(list, 0, list.size()-1);
         return root;
     }
